@@ -1,0 +1,25 @@
+# Keeps the cask on gh-ui's latest release. Reads public release data, so it needs no extra token.
+name: Update cask
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: .github/scripts/update-cask.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Commit any change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/github-ui.rb
+          git diff --cached --quiet || { git commit -m "feat(cask): update github-ui to $(sed -nE 's/^  version "(.*)"$/\1/p' Casks/github-ui.rb)" && git push; }
