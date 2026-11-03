@@ -1,10 +1,11 @@
 cask "github-ui" do
-  version :latest
-  sha256 :no_check
-
   arch arm: "arm64", intel: "x64"
 
-  url "https://github.com/PlaygrndLabs/gh-ui/releases/latest/download/GitHub-UI-#{arch}.dmg"
+  version "0.2.1"
+  sha256 arm:   "08210b3f5442269d2ea72ecc8dfe408a2c018363fa1de07ce88eec9f2d446bab",
+         intel: "b6ba6e0ed6a74d66514ef3bef4e7ec7a59dfa131fcd157a0a6a1418b1d87ac79"
+
+  url "https://github.com/PlaygrndLabs/gh-ui/releases/download/v#{version}/GitHub-UI-#{arch}.dmg"
   name "GitHub UI"
   desc "GitHub client with a built-in code review agent"
   homepage "https://github.com/PlaygrndLabs/gh-ui"
