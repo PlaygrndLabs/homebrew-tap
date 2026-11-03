@@ -1,4 +1,4 @@
-cask "github-ui" do
+cask "gh-ui" do
   arch arm: "arm64", intel: "x64"
 
   version "0.3.0"

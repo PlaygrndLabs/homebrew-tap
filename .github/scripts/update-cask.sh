@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Pins Casks/github-ui.rb to gh-ui's latest release and its installers' checksums. Never moves to an older version.
+# Pins Casks/gh-ui.rb to gh-ui's latest release and its installers' checksums. Never moves to an older version.
 set -euo pipefail
 
-cask=Casks/github-ui.rb
+cask=Casks/gh-ui.rb
 release=$(gh api repos/PlaygrndLabs/gh-ui/releases/latest)
 version=$(jq -r '.tag_name | ltrimstr("v")' <<<"$release")
 digest() { jq -r --arg name "$1" '.assets[] | select(.name == $name) | .digest | ltrimstr("sha256:")' <<<"$release"; }
