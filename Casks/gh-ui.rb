@@ -1,9 +1,9 @@
 cask "gh-ui" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.4.0"
-  sha256 arm:   "1aa21f2203db7c09d0a4570e663d4d15c9eb6d41dd6655fda295bf817a0ce055",
-         intel: "16a005738daaa64eb102fa052216b70f2ebc9e2a7f4a2b92b15e41816436bb3b"
+  version "0.5.0"
+  sha256 arm:   "3863f5c98b2fed514f04b23cca0640503a18e751d972c5cc70499ffd42d7442f",
+         intel: "872ec252f8560e45a3cfe8e264956e3d2a3206205560fbe2c2961593730c1a3d"
 
   url "https://github.com/PlaygrndLabs/gh-ui/releases/download/v#{version}/GitHub-UI-#{arch}.dmg"
   name "GitHub UI"
